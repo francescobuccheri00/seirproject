@@ -3,8 +3,6 @@
 #include "epidemic.hpp"
 #include "printtables.hpp"
 #include <algorithm>
-#include <string>
-#include <vector>
 
 int main() {
 
@@ -19,7 +17,7 @@ int main() {
          "incubazione, periodo medio dell'infezione per ciascuna persona e "
          "numero medio di individui incontrati da ciascun soggetto. Avvertenza "
          ": non inserire un valore iniziale della popolaione troppo basso "
-         "poiché non sarebbe conforme con il numero di nascite (10) !"
+         "poiché non sarebbe conforme con il numero di nascite (50) !"
       << "\n";
   std::cout << "---------------------------------------------------------------"
                "----------------"
@@ -43,10 +41,7 @@ int main() {
   }
   seir0.i = 0;
   seir0.r = 0;
-  double Pr =
-      5 /
-      (10 *
-       seir0.s); // per maggiori informazioni consultare Doctest.infomodel.cpp
+  double Pr = 5 / (10 * seir0.s); // per maggiori informazioni consultare Doctest.infomodel.cpp
   seir0.r0 = seir0.s * ((Pr * 5 * 0.25) / ((0.143 + 0.01) * (0.25 + 0.01)));
 
   Epidemic<Seir> vir{seir0, 7, Pr, 4}; // seir0,periodo medio di
