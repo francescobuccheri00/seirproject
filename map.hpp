@@ -26,7 +26,9 @@ class Matrix {
     Matrix(size_t nRighe, size_t nColonne, Map mappa = 0):
       nRighe_{nRighe}, nColonne_{nColonne}, mappa_(nRighe_ * nColonne_, mappa) {}
     
-    ~Matrix() = default;
+    ~Matrix() = default; // distruttore in default
+     Matrix( Matrix const& ) = default; // costruttore di copia
+     Matrix& operator=( Matrix const& ) = default; // operatore di assegnamento
     
     size_t getNumCols() const { return nColonne_; }//tipo size_t
     size_t getNumRows() const { return nRighe_; }
