@@ -20,14 +20,17 @@ public:
    std::vector<Virus> createTable(int n) {
 
     constexpr double lambda = 50;   // numero di nascite costante
+    assert(lambda > 0);
     constexpr double mi = 0.01; // tasso mortalità
-    constexpr int ni = 5;     
-// numero medio di persone incontrate al giorno da un infetto, supposto costante
+    assert(mi > 0);
+    constexpr int ni = 5; // numero medio di persone incontrate al giorno da un infetto, supposto costante
+    assert(ni > 0); // le tre costanti devono ovviamente essere maggiori di zero
     double beta = ni * P_;
     assert(beta > 0 && beta < 1);
     double gamma = 1 / tau_;
     assert(gamma > 0 && gamma < 1);
     double alfa = 1 / t_;
+    assert(alfa > 0);
 
     std::vector<Seir> people{sir_};
     for (int i = 1; i <= n; i++) {
@@ -49,7 +52,7 @@ public:
          if (prev.e<p.e){p.max_e=p.e;}
          if (prev.i<p.i){p.max_i=p.i;}
       }
-      // poichè la probabilità di essere contagiati diventa zero
+      // poichè la probabilità di essere contagiati diventa idealmente zero
 
       people.push_back(p);
     }
