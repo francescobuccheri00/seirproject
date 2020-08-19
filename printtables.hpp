@@ -8,10 +8,10 @@ inline void printTables(std::vector<Seir> const &numbers) {
             << "  (R)     "
             << "     R0"
             << "\n";
-  for (auto const &n : numbers) {
-    std::cout << std::to_string(n.s) << " | " << std::to_string(n.e) << " | "
-              << std::to_string(n.i) << " | " << std::to_string(n.r) << " "
-              << " | " << std::to_string(n.r0) << "\n"
+  for (auto const &num : numbers) {
+    std::cout << std::to_string(num.s) << " | " << std::to_string(num.e) << " | "
+              << std::to_string(num.i) << " | " << std::to_string(num.r) << " "
+              << " | " << std::to_string(num.r0) << "\n"
               << "-------------------------------------------------------------"
                  "------------------";
   }
