@@ -8,9 +8,9 @@ template <typename MAP>
 
 inline void swap(Matrix<MAP> &map1, Matrix<MAP> &map2)//serve a "incollare" il nuovo stato della matrice in quello vecchio e consentire la progressione
 {
-  std::swap(map1.nRighe_, map2.nRighe_);
+  std::swap(map1.nRighe_, map2.nRighe_); //algoritmo std::swap che scambia i valori/simboli di mappa 1, originale, coi valori/simboli di mappa 2 nuova
   std::swap(map1.nColonne_, map2.nColonne_);
-  swap(map1.mappa_, map2.mappa_);
+  std::swap(map1.mappa_, map2.mappa_);
 }
 
 typedef Matrix<char> Board;
@@ -31,7 +31,7 @@ std::ostream& operator<<(std::ostream &image, Board const& board)
     image << '\n';
   }
   return image;
-}//visualizza la board matrice con algortitmo
+}//visualizza la board matrice con algortitmo, restituisce in output la struttura tabellare creata
 
 
 inline void develop(Board const& board, Board & board1)
@@ -58,7 +58,6 @@ inline void develop(Board const& board, Board & board1)
         case 'o': 
           person1 = 'o';
           break;
-        //default: assert(false);
       }
       board1[i][j] = person1;
     }
