@@ -100,7 +100,7 @@ int main() {
       std::cin >> S;
       std::cout << "  Inserire infine il correspondente numero di INFETTI : ";
       std::cin >> I;
-      res2 = dedt(I, S, E);
+      res2 = dedt(E, S, I);
       std::cout << "Il coefficiente angolare è : " << res2 << "\n"
                 << "A presto!"
                 << "\n";
@@ -113,7 +113,7 @@ int main() {
       std::cin >> I;
       std::cout << "  Inserire il correspondente numero di ESPOSTI  : ";
       std::cin >> E;
-      res3 = didt(E, I);
+      res3 = didt(I, E);
       std::cout << "Il coefficiente angolare è : " << res3 << "\n"
                 << "A presto!"
                 << "\n";
@@ -127,7 +127,7 @@ int main() {
       std::cin >> R;
       std::cout << "  Inserire il correspondente numero di INFETTI  : ";
       std::cin >> I;
-      res4 = drdt(I, R);
+      res4 = drdt(R, I);
       std::cout << "Il coefficiente angolare è : " << res4 << "\n"
                 << "A presto!"
                 << "\n";
