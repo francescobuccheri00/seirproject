@@ -9,30 +9,30 @@
 template <class Virus> 
 class Epidemic {
 private:
-  Seir sir_;
+  Seir seir_;
   double tau_; // tempo medio di malattia in giorni, ad esempio
   double P_;  //probabilità (costante per tutta l'epidemia) di essere infettato
   double t_; // periodo medio di incubazione
 public:
-  Epidemic(Virus const &sir, double tau, double P, double t)
-      : sir_{sir}, tau_{tau}, P_{P}, t_{t} {}
+  Epidemic(Virus const &seir, double tau, double P, double t)
+      : seir_{seir}, tau_{tau}, P_{P}, t_{t} {}
   
    std::vector<Virus> createTable(int n) {
 
     constexpr double lambda = 50;   // numero di nascite costante
-    assert(lambda > 0);
+     assert(lambda > 0);
     constexpr double mi = 0.01; // tasso mortalità
-    assert(mi > 0);
+     assert(mi > 0);
     constexpr int ni = 5; // numero medio di persone incontrate al giorno da un infetto, supposto costante
-    assert(ni > 0); // le tre costanti devono ovviamente essere maggiori di zero
+     assert(ni > 0); // le tre costanti devono ovviamente essere maggiori di zero
     double beta = ni * P_;
-    assert(beta > 0 && beta < 1);
+     assert(beta > 0 && beta < 1); // condizioni d'utilizzo
     double gamma = 1 / tau_;
-    assert(gamma > 0 && gamma < 1);
+     assert(gamma > 0 && gamma < 1);
     double alfa = 1 / t_;
-    assert(alfa > 0);
+     assert(alfa > 0);
 
-    std::vector<Seir> people{sir_};
+    std::vector<Seir> people{seir_};
     for (int i = 1; i <= n; i++) {
       Virus p;
       Virus const &prev = people.back();
