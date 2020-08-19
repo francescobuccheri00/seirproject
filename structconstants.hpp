@@ -6,6 +6,6 @@ struct Constants {
   double mi2 = 0.01;
   double ni2 = 5;
   double alfa2 = 0.25; // reciproco del periodo medio di incubazione
-  double gamma2 = 0.1; // reciproco della durata media della malattia
+  double gamma2 = 0.143; // reciproco della durata media della malattia
 };
 #endif
