@@ -29,7 +29,7 @@ TEST_CASE("Parameters test") {
   std::cout << "Formule probabilità : Pr=ni*beta/Si "
                "Pr2=beta*2*Si*Ei/((Si+Ei)*(Si+Ei-1))*k"
             << "\n";
-  std::cout << "Formule perodo medio della malattia per soggetto : "
+  std::cout << "Formule periodo medio della malattia per soggetto : "
                "tau=costante tau2=sommatoria per k che va da 0 a un N molto "
                "grande di k*(1-1/tau)^(k-1) * (1/tau)"
             << "\n";
