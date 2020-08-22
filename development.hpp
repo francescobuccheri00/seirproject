@@ -13,42 +13,42 @@ inline void swap(Matrix<MAP> &map1, Matrix<MAP> &map2)//serve a "incollare" il n
   std::swap(map1.mappa_, map2.mappa_);
 }
 
-typedef Matrix<char> Board;
+typedef Matrix<char> Table;
 
-bool operator==(Board const& board1, Board const& board2)
+bool operator==(Table const& table1, Table const& table2)
 {
-  return board1.getNumRows() == board2.getNumRows()
-    && board1.getNumCols() == board2.getNumCols()
-    && board1.get() == board2.get();
+  return table1.getNumRows() == table2.getNumRows()
+    && table1.getNumCols() == table2.getNumCols()
+    && table1.get() == table2.get();
 }
 
-std::ostream& operator<<(std::ostream &image, Board const& board)
+std::ostream& operator<<(std::ostream &image, Table const& tab)
 {
-  for (size_t i = 1, nRighe = board.getNumRows() - 1; i < nRighe; ++i) {
-    for (size_t j = 1, nColonne = board.getNumCols() - 1; j < nColonne; ++j) {
+  for (size_t i = 1, nRighe = tab.getNumRows() - 1; i < nRighe; ++i) {
+    for (size_t j = 1, nColonne = tab.getNumCols() - 1; j < nColonne; ++j) {
       image << ' ' << board[i][j];
     }
     image << '\n';
   }
   return image;
-}//visualizza la board matrice con algortitmo, restituisce in output la struttura tabellare creata
+}//visualizza la mappa, restituisce in output la struttura tabellare creata
 
 
-inline void develop(Board const& board, Board & board1)
+inline void develop(Table const& table, Table & table1)
 {
-  assert(board.getNumRows() == board1.getNumRows());
-  assert(board.getNumCols() == board1.getNumCols());
+  assert(table.getNumRows() == table1.getNumRows());
+  assert(table.getNumCols() == table1.getNumCols());
   
-  for (size_t i = 1, nRows = board.getNumRows() - 1; i < nRows; ++i) {
-    for (size_t j = 1, nCols = board.getNumCols() - 1; j < nCols; ++j) {
-      const char person = board[i][j];//punto nella matrice
+  for (size_t i = 1, nRows = table.getNumRows() - 1; i < nRows; ++i) {
+    for (size_t j = 1, nCols = table.getNumCols() - 1; j < nCols; ++j) {
+      const char person = table[i][j];//punto nella matrice
       char person1 = person;
       switch (person) {
         case '.': { //cerca vicini esposti/infetti
           bool infect = false;
-          for (int iP = -1; !infect && iP <= 1; ++iP) {
-            for (int jP = -1; !infect && jP <= 1; ++jP) {
-              infect = board[i + iP][j + jP] == 'x';
+          for (int i2 = -1; !infect && i2 <= 1; ++i2) {
+            for (int j2 = -1; !infect && j2 <= 1; ++j2) {
+              infect = table[i + i2][j + j2] == 'x';
             }
           }
           person1 = infect ? 'x' : '.';
@@ -59,7 +59,7 @@ inline void develop(Board const& board, Board & board1)
           person1 = 'o';
           break;
       }
-      board1[i][j] = person1;
+      table1[i][j] = person1;
     }
   }
 }
