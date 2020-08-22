@@ -2,7 +2,7 @@
 #define SEIRSTRUCT_HPP
 
 // struttura dati che inglomba le quattro possibili condizioni di salute di un
-// soggetto in tempo di pandemia, il numero di riproduzione di base r0 e il 
+// soggetto, il numero di riproduzione di base r0 e il 
 //numero massimo di esposti e infetti toccato durante l'epidemia
 
 struct Seir {
