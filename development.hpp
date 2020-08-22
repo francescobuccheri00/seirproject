@@ -15,14 +15,14 @@ inline void swap(Matrix<MAP> &map1, Matrix<MAP> &map2)//serve a "incollare" il n
 
 typedef Matrix<char> Table;
 
-bool operator==(Table const& table1, Table const& table2)
+inline bool operator==(Table const& table1, Table const& table2)
 {
   return table1.getNumRows() == table2.getNumRows()
     && table1.getNumCols() == table2.getNumCols()
     && table1.get() == table2.get();
 }
 
-std::ostream& operator<<(std::ostream &image, Table const& tab)
+inline std::ostream& operator<<(std::ostream &image, Table const& tab)
 {
   for (size_t i = 1, nRighe = tab.getNumRows() - 1; i < nRighe; ++i) {
     for (size_t j = 1, nColonne = tab.getNumCols() - 1; j < nColonne; ++j) {
