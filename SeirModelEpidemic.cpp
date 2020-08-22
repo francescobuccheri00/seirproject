@@ -5,12 +5,10 @@
 #include <algorithm>
 
 int main() {
-
-  Seir seir0{};
   std::cout << "---------------------------------------------------------------"
                "----------------";
   std::cout
-      << "Ciao! Ecco qua un piccolo programma che ti consente di   analizzare "
+      << "Ciao! Ecco qua un piccolo programma che ti consente di analizzare "
          "lo sviluppo di un'ipotetica epidemia, su un numero di persone scelto "
          "da te, dati dei parametri costanti modificabili solo dal codice "
          "sorgente : numero di nascite giornaliere, tempo medio di "
@@ -22,6 +20,8 @@ int main() {
   std::cout << "---------------------------------------------------------------"
                "----------------"
             << "\n\n";
+  
+  Seir seir0{};
   std::cout << "Inserire numero di persone della popolazione del paese : ";
   std::cin >> seir0.s;
   if (seir0.s < 0) {
@@ -41,19 +41,14 @@ int main() {
   }
   seir0.i = 0;
   seir0.r = 0;
-  double Pr =
-      5 /
-      (10 *
-       seir0.s); // per maggiori informazioni consultare Doctest.infomodel.cpp
+  double Pr = 5 / (10 * seir0.s); // per maggiori informazioni consultare Doctest.infomodel.cpp
   seir0.r0 = seir0.s * ((Pr * 5 * 0.25) / ((0.143 + 0.01) * (0.25 + 0.01)));
 
-  Epidemic<Seir> vir{seir0, 7, Pr, 4}; // seir0,periodo medio di
-  // malattia, probabilità di infettarsi e periodo medio di incubazione
+  Epidemic<Seir> vir{seir0, 7, Pr, 4}; // seir0,duarata medio della malattia per soggetto, probabilità di infettarsi e periodo medio di incubazione
 
   std::cout << "La probabilità iniziale di essere infetto è : " << Pr;
   int num;
-  std::cout
-      << "\n\n"
+  std::cout<< "\n\n"
       << "Quanti giorni vuoi visualizzare dello sviluppo dell'epidemia? : ";
   std::cin >> num;
   auto virus_seir = vir.createTable(num);
@@ -233,14 +228,14 @@ int main() {
       std::cout
           << "\n"
           << "Arrivederci! Grazie di aver utilizzato il programma, ci dispiace "
-             "che tu non abbia scelto nessuna delle opzioni precedenti. Se ti "
+             "che tu non abbia scelto nessuna delle espansioni precedenti. Se ti "
              "interessa, il file histo.cpp presenta la possibilità di creare "
              "istogrammi esemplificativi dell'andamento delle quattro "
              "variabili dell'epidemia. Ti basterà ricreare la tabella con un "
              "numero di suscettibili iniziali non troppo alto e   "
              "inserire i "
-             "corrispondenti numeri nel programma histo.cpp, una volta "
-             "terminato questo. A te la scelta, a presto! "
+             "corrispondenti numeri nel programma"
+             "A te la scelta, a presto! "
           << "\n";
       return 0;
     }
