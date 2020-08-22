@@ -183,9 +183,9 @@ int main() {
       std::cout << "Inserire numero di colonne della mappa: ";
       std::cin >> nCols;
 
-      Board board(nRows + 2, nCols + 2);
-      std::fill(board[0], board[nRows + 1], '.'); // filling della mappa
-      std::cout << board << '\n';
+      Table table(nRows + 2, nCols + 2);
+      std::fill(table[0], table[nRows + 1], '.'); // filling della mappa
+      std::cout << table << '\n';
 
       std::cout << "I pazienti 0 saranno contrassegnati dalle x\n";
 
@@ -203,23 +203,23 @@ int main() {
         std::cin >> i;
         std::cout << "Colonna : ";
         std::cin >> j;
-        board[i][j] = 'x';
+        table[i][j] = 'x';
       }
 
       for (int week = 1;;) {
         std::cout << "Settimana " << week << ":\n";
-        std::cout << board << '\n';
-        // simulate next day
+        std::cout << table << '\n';
+        // simula settimana successiva
         ++week;
 
-        Board board1(board);
-        develop(board, board1);
-        if (board == board1) {
+        Table table1(table);
+        develop(table,table1);
+        if (table == table1){
           std::cout << "L' epidemia si estingue alla settimana " << week
                     << ".\n";
           break;
         }
-        swap(board, board1); // copia nuova mappa su vecchia
+        swap(table, table1); // copia la nuova mappa sulla vecchia
       }
       std::cout << "La mappatura presentata semplifica il modello SEIR nel "
                    "modello SIR, per semplicità si sono considerati insieme "
@@ -246,3 +246,4 @@ int main() {
     }
   }
 }
+
