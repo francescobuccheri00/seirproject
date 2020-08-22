@@ -10,7 +10,7 @@ template <class Virus>
 class Epidemic {
 private:
   Seir seir_;
-  double tau_; // tempo medio di malattia in giorni, ad esempio
+  double tau_; // tempo medio di malattia in giorni
   double P_;  //probabilità (costante per tutta l'epidemia) di essere infettato
   double t_; // periodo medio di incubazione
 public:
@@ -19,20 +19,20 @@ public:
   
    std::vector<Virus> createTable(int n) {
 
-    constexpr double lambda = 50;   // numero di nascite costante
-     assert(lambda > 0);
-    constexpr double mi = 0.01; // tasso mortalità
+    constexpr double lambda = 50;   // numero di nascite gionaliere costante
+     assert(lambda > 0); // controllo a compiletime
+    constexpr double mi = 0.01; // tasso mortalità giornaliero costante
      assert(mi > 0);
-    constexpr int ni = 5; // numero medio di persone incontrate al giorno da un infetto, supposto costante
+    constexpr int ni = 5; // numero medio di persone incontrate al giorno da un soggetto
      assert(ni > 0); // le tre costanti devono ovviamente essere maggiori di zero
-    double beta = ni * P_;
+    double beta = ni * P_; // parametro che indica la probabilità di contagiarsi
      assert(beta > 0 && beta < 1); // condizioni d'utilizzo
-    double gamma = 1 / tau_;
+    double gamma = 1 / tau_; // probbilità di guarire dopo la durata della malattia
      assert(gamma > 0 && gamma < 1);
     double alfa = 1 / t_;
      assert(alfa > 0);
 
-    std::vector<Seir> people{seir_};
+    std::vector<Seir> people{seir_}; // vettore inizializzato coi parametri della struct
     for (int i = 1; i <= n; i++) {
       Virus p;
       Virus const &prev = people.back();
@@ -54,7 +54,7 @@ public:
       }
       // poichè la probabilità di essere contagiati diventa idealmente zero
 
-      people.push_back(p);
+      people.push_back(p); // aggiungiamo l'istanza p al vettore
     }
 
     return people;
