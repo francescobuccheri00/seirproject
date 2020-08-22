@@ -26,7 +26,7 @@ std::ostream& operator<<(std::ostream &image, Table const& tab)
 {
   for (size_t i = 1, nRighe = tab.getNumRows() - 1; i < nRighe; ++i) {
     for (size_t j = 1, nColonne = tab.getNumCols() - 1; j < nColonne; ++j) {
-      image << ' ' << board[i][j];
+      image << ' ' << tab[i][j];
     }
     image << '\n';
   }
@@ -38,7 +38,7 @@ inline void develop(Table const& table, Table & table1)
 {
   assert(table.getNumRows() == table1.getNumRows());
   assert(table.getNumCols() == table1.getNumCols());
-  
+ 
   for (size_t i = 1, nRows = table.getNumRows() - 1; i < nRows; ++i) {
     for (size_t j = 1, nCols = table.getNumCols() - 1; j < nCols; ++j) {
       const char person = table[i][j];//punto nella matrice
@@ -53,9 +53,9 @@ inline void develop(Table const& table, Table & table1)
           }
           person1 = infect ? 'x' : '.';
         } break;
-        case 'x': 
+        case 'x':
 
-        case 'o': 
+        case 'o':
           person1 = 'o';
           break;
       }
