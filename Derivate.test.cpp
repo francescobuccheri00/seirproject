@@ -9,7 +9,7 @@ CHECK(k.mi2==0.01);
 CHECK(k.ni2==5);
 CHECK(k.alfa2==0.25);
 CHECK(k.gamma2==0.1);
-//Checking constants to be constants
+//Controlla che le costanti siano tali
 
 double S,E,I,R;
 std::cout<<"Controllo della correttezza del coefficiente angolare/andamento delle quattro derivate. Scegli un punto a piacere"<<"\n";
