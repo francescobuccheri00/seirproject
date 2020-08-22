@@ -41,7 +41,10 @@ int main() {
   }
   seir0.i = 0;
   seir0.r = 0;
-  double Pr = 5 / (10 * seir0.s); // per maggiori informazioni consultare Doctest.infomodel.cpp
+  double Pr =
+      5 /
+      (10 *
+       seir0.s); // per maggiori informazioni consultare Doctest.infomodel.cpp
   seir0.r0 = seir0.s * ((Pr * 5 * 0.25) / ((0.143 + 0.01) * (0.25 + 0.01)));
 
   Epidemic<Seir> vir{seir0, 7, Pr, 4}; // seir0,periodo medio di
@@ -84,9 +87,17 @@ int main() {
       double I;
       std::cin >> I;
       res = dsdt(S, I);
-      std::cout << "Il coefficiente angolare è : " << res << "\n"
-                << "A presto!"
+      std::cout << "Il coefficiente angolare è : " << res << "\n";
+      if (res > 0) {
+        std::cout << "La curva è crescente"
+                  << "\n";
+      } else {
+        std::cout << "La curva è decrescente"
+                  << "\n";
+      }
+      std::cout << "A presto!"
                 << "\n";
+
       break;
 
     case 'e':
@@ -101,8 +112,15 @@ int main() {
       std::cout << "  Inserire infine il correspondente numero di INFETTI : ";
       std::cin >> I;
       res2 = dedt(E, S, I);
-      std::cout << "Il coefficiente angolare è : " << res2 << "\n"
-                << "A presto!"
+      std::cout << "Il coefficiente angolare è : " << res2 << "\n";
+      if (res2 > 0) {
+        std::cout << "La curva è crescente"
+                  << "\n";
+      } else {
+        std::cout << "La curva è decrescente"
+                  << "\n";
+      }
+      std::cout << "A presto!"
                 << "\n";
       break;
 
@@ -114,8 +132,15 @@ int main() {
       std::cout << "  Inserire il correspondente numero di ESPOSTI  : ";
       std::cin >> E;
       res3 = didt(I, E);
-      std::cout << "Il coefficiente angolare è : " << res3 << "\n"
-                << "A presto!"
+      std::cout << "Il coefficiente angolare è : " << res3 << "\n";
+      if (res3 > 0) {
+        std::cout << "La curva è crescente"
+                  << "\n";
+      } else {
+        std::cout << "La curva è decrescente"
+                  << "\n";
+      }
+      std::cout << "A presto!"
                 << "\n";
       break;
 
@@ -128,8 +153,15 @@ int main() {
       std::cout << "  Inserire il correspondente numero di INFETTI  : ";
       std::cin >> I;
       res4 = drdt(R, I);
-      std::cout << "Il coefficiente angolare è : " << res4 << "\n"
-                << "A presto!"
+      std::cout << "Il coefficiente angolare è : " << res4 << "\n";
+      if (res4 > 0) {
+        std::cout << "La curva è crescente"
+                  << "\n";
+      } else {
+        std::cout << "La curva è decrescente"
+                  << "\n";
+      }
+      std::cout << "A presto!"
                 << "\n";
       break;
     }
@@ -205,7 +237,8 @@ int main() {
              "interessa, il file histo.cpp presenta la possibilità di creare "
              "istogrammi esemplificativi dell'andamento delle quattro "
              "variabili dell'epidemia. Ti basterà ricreare la tabella con un "
-             "numero di suscettibili iniziali non troppo alto (60-70) e   inserire i "
+             "numero di suscettibili iniziali non troppo alto e   "
+             "inserire i "
              "corrispondenti numeri nel programma histo.cpp, una volta "
              "terminato questo. A te la scelta, a presto! "
           << "\n";
