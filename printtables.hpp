@@ -20,12 +20,12 @@ inline void printTables(std::vector<Seir> const &numbers) {
                "visualizzerai il numero massimo di esposti e infetti : ";
   int nm;
   std::cin >> nm;
-  auto const i = numbers[nm];
+  auto const last = numbers[nm];
   std::cout << "\n";
   std::cout << "Numero massimo di esposti : ";
-  std::cout << i.max_e << "\n";
+  std::cout << last.max_e << "\n";
   std::cout << "Numero massimo di infetti : ";
-  std::cout << i.max_i << "\n\n";
+  std::cout << last.max_i << "\n\n";
 }
 #endif
 
