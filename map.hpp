@@ -10,15 +10,15 @@ template <class MAP>
 class Matrix; // forward declaration
 
 template <class MAP>
-void swap(Matrix<MAP>&, Matrix<MAP>&); 
+void swap(Matrix<MAP>&, Matrix<MAP>&);
 
 template <class MAP>
 class Matrix {
   friend void swap<MAP>(Matrix<MAP>&, Matrix<MAP>&); // friend serve a far accedere ai membri privati e protetti della classe corrispondente
     
   private:
-    size_t nRighe_ , nColonne_; // tipo size_t per creare griglia di righe e colonne; esprime la dimenzione in byte di qualsiasi intervallo di memoria
-    std::vector<MAP> mappa_;
+    size_t nRighe_ , nColonne_; // tipo size_t per creare griglia di righe e colonne; esprime la dimensione in byte di qualsiasi intervallo di memoria
+    std::vector<MAP> mappa_; // vettore di tipo MAP, base per costruire una griglia
 
   public:
 
@@ -29,6 +29,8 @@ class Matrix {
     ~Matrix() = default; // distruttore in default
      Matrix( Matrix const& ) = default; // costruttore di copia di default
      Matrix& operator=( Matrix const& ) = default; // operatore di assegnamento di copia, di default
+     Matrix ( Matrix&& ) = default; // costruttore di spostamento di default
+     Matrix& operator=( Matrix&& ) = default; // operatore di assegnamento di spostamento di default
     
     size_t getNumCols() const { return nColonne_; }
     size_t getNumRows() const { return nRighe_; }
