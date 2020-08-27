@@ -5,22 +5,20 @@
 #include <algorithm>
 
 int main() {
-  std::cout << "---------------------------------------------------------------"
-               "----------------";
+
   std::cout
-      << "Ciao! Ecco qua un piccolo programma che ti consente di analizzare "
+      << "\n" << "----------------------------------------------------------------------------------------------------------"
+      << "\n" << "Ciao! Ecco qua un piccolo programma che ti consente di analizzare "
          "lo sviluppo di un'ipotetica epidemia, su un numero di persone scelto "
          "da te, dati dei parametri costanti modificabili solo dal codice "
          "sorgente : numero di nascite giornaliere, tempo medio di "
          "incubazione, periodo medio dell'infezione per ciascuna persona e "
          "numero medio di individui incontrati da ciascun soggetto. Avvertenza "
          ": non inserire un valore iniziale della popolaione troppo basso "
-         "poiché non sarebbe conforme con il numero di nascite (50) !"
-      << "\n";
-  std::cout << "---------------------------------------------------------------"
-               "----------------"
-            << "\n\n";
-  
+         "poiché non sarebbe conforme con il numero di nascite (10) !"
+      << "\n" << "-----------------------------------------------------------------------------------------------------------"
+      << "\n\n";
+
   Seir seir0{};
   std::cout << "Inserire numero di persone della popolazione del paese : ";
   std::cin >> seir0.s;
@@ -44,11 +42,13 @@ int main() {
   double Pr = 5 / (10 * seir0.s); // per maggiori informazioni consultare Doctest.infomodel.cpp
   seir0.r0 = seir0.s * ((Pr * 5 * 0.25) / ((0.143 + 0.01) * (0.25 + 0.01)));
 
-  Epidemic<Seir> vir{seir0, 7, Pr, 4}; // seir0,duarata medio della malattia per soggetto, probabilità di infettarsi e periodo medio di incubazione
+  Epidemic<Seir> vir{seir0, 7, Pr, 4}; // seir0, durata media della
+  // malattia per soggetto, probabilità di infettarsi e periodo medio di incubazione
 
   std::cout << "La probabilità iniziale di essere infetto è : " << Pr;
   int num;
-  std::cout<< "\n\n"
+  std::cout
+      << "\n\n"
       << "Quanti giorni vuoi visualizzare dello sviluppo dell'epidemia? : ";
   std::cin >> num;
   auto virus_seir = vir.createTable(num);
@@ -68,8 +68,8 @@ int main() {
         << "Scegli una delle seguenti opzioni, la lettera si riferisce al "
            "parametro di cui vuoi calcolare la derivata in un punto : s e i r"
         << "\n";
+    
     char der;
-
     std::cin >> der;
     switch (der) {
     case 's':
@@ -228,17 +228,16 @@ int main() {
       std::cout
           << "\n"
           << "Arrivederci! Grazie di aver utilizzato il programma, ci dispiace "
-             "che tu non abbia scelto nessuna delle espansioni precedenti. Se ti "
+             "che tu non abbia scelto nessuna delle opzioni precedenti. Se ti "
              "interessa, il file histo.cpp presenta la possibilità di creare "
              "istogrammi esemplificativi dell'andamento delle quattro "
              "variabili dell'epidemia. Ti basterà ricreare la tabella con un "
              "numero di suscettibili iniziali non troppo alto e   "
              "inserire i "
-             "corrispondenti numeri nel programma"
-             "A te la scelta, a presto! "
+             "corrispondenti numeri nel programma histo.cpp, una volta "
+             "terminato questo. A te la scelta, a presto! "
           << "\n";
       return 0;
     }
   }
 }
-
