@@ -19,7 +19,7 @@ public:
   
    std::vector<Virus> createTable(int n) {
 
-    constexpr double lambda = 50;   // numero di nascite gionaliere costante
+    constexpr double lambda = 10;   // numero di nascite gionaliere costante
      assert(lambda > 0); // controllo a compiletime
     constexpr double mi = 0.01; // tasso mortalità giornaliero costante
      assert(mi > 0);
