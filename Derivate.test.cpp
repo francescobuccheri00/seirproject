@@ -4,11 +4,11 @@
 
 TEST_CASE("derivate test") {
 Constants k;
-CHECK(k.lam2==50);
+CHECK(k.lam2==10);
 CHECK(k.mi2==0.01);
 CHECK(k.ni2==5);
 CHECK(k.alfa2==0.25);
-CHECK(k.gamma2==0.1);
+CHECK(k.gamma2==0.143);
 //Controlla che le costanti siano tali
 
 double S,E,I,R;
