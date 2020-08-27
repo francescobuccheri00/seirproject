@@ -11,7 +11,6 @@ struct Seir {
   double i;
   double r;
   double r0;
-  double max_e;
   double max_i;
 };
 #endif
