@@ -13,7 +13,7 @@ void printTables(std::vector<Seir> const &numbers) {
               << std::to_string(n.i) << " | " << std::to_string(n.r) << " "
               << " | " << std::to_string(n.r0) << "\n"
               << "-------------------------------------------------------------"
-                 "------------------";
+                 "-------" << "\n";
   }
   std::cout << "\n";
   std::cout << "Reinserisci il totale di giorni che hai voluto controllare e "
