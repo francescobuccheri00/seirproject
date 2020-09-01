@@ -22,7 +22,7 @@ inline double dsdt(double S, double I) {
   return (c.lam2 - (c.mi2 * S) - (beta * I * S));
 }
 
-inline double dedt(double E, double S, double I) {
+inline double dedt(double I, double S, double E) {
   assert(S > 0 || I >= 0 || E > 0);
   Constants c;
   std::cout << "Immetti numero iniziale della popolazione nuovamente : "
@@ -33,17 +33,17 @@ inline double dedt(double E, double S, double I) {
     std::cout << "Simpatico! Hai inserito un numero sbagliato, riprovare";
     return 0;
   }
-  double beta = c.ni2 / (10 * s2);
+  double beta = ( c.ni2 * c.ni2 ) / (10 * s2);
   return (beta * I * S) - ((c.mi2 + c.alfa2) * E);
 }
 
-inline double didt(double I, double E) {
+inline double didt(double E, double I) {
   assert(E > 0 || I >= 0);
   Constants c;
   return (c.alfa2 * E) - ((c.mi2 + c.gamma2) * I);
 }
 
-inline double drdt(double R, double I) {
+inline double drdt(double I, double R) {
   assert(R >= 0 || I > 0);
   Constants c;
   return (c.gamma2 * I) - (c.mi2 * R);
