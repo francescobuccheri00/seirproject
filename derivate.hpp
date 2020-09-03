@@ -19,7 +19,9 @@ inline double dsdt(double S, double I) {
     return 0;
   }
   double beta = (c.ni2 * c.ni2) / (10 * s);
-  return (c.lam2 - (c.mi2 * S) - (beta * I * S));
+  if((beta*c.alfa2)/((c.mi2+c.gamma2)*(c.mi2+c.alfa2))>1){
+  return (c.lam2 - (c.mi2 * S) - (beta * I * S));}
+  else{return 0;}//la forma concettuale corretta è questa
 }
 
 inline double dedt(double I, double S, double E) {
